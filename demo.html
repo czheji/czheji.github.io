@@ -30,8 +30,8 @@
         chrome.runtime.sendMessage(
           extensionIdField.value || "nfoddpmcmcgidocmelbgdapjjiooajkp",
           payload,
-          function response(resp){
-            console.log("response: ",resp)
+          function(response){
+            console.log("response: ",response)
           } 
         );
       }
