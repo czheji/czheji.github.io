@@ -44,9 +44,9 @@
       var r = ""
       sendMessageToExtension(payload,function(response){
         console.log("plugin response:",response)
-        r = response
+        this.r = response
       });
-      payloadPreview.innerHTML = "<p>Sent: " + JSON.stringify(payload)+"</p>"+"<p>Resp:"+r+"</p>"
+      payloadPreview.innerHTML = "<p>Sent: " + JSON.stringify(payload)+"</p>"+"<p>Resp:"+JSON.stringify(r)+"</p>"
     };
 
     logoutButton.onclick = () => {
