@@ -29,7 +29,10 @@
       if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage(
           extensionIdField.value || "nfoddpmcmcgidocmelbgdapjjiooajkp",
-          payload
+          payload,
+          function response(resp){
+            console.log("response: ",resp)
+          } 
         );
       }
     }
