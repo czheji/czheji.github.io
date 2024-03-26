@@ -37,14 +37,14 @@
     const loginButton = document.querySelector("#login-button");
     const logoutButton = document.querySelector("#logout-button");
     const payloadPreview = document.querySelector("#payload-preview");
-
+    var r = ""
     loginButton.onclick = () => {
       const payload = { type: "LOG_IN", token: "xxx" };
       console.log("loginButton onClick")
-      var r = ""
+      
       sendMessageToExtension(payload,function(response){
         console.log("plugin response:",response)
-        this.r = response
+        r = response
       });
       payloadPreview.innerHTML = "<p>Sent: " + JSON.stringify(payload)+"</p>"+"<p>Resp:"+JSON.stringify(r)+"</p>"
     };
