@@ -40,7 +40,7 @@
 
     loginButton.onclick = () => {
       const payload = { type: "LOG_IN", token: "xxx" };
-      
+      console.log("loginButton onClick")
       sendMessageToExtension(payload,function(response){
         console.log("plugin response:",response)
       });
