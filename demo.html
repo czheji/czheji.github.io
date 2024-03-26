@@ -23,16 +23,14 @@
   </body>
 
   <script defer>
-    function sendMessageToExtension(payload) {
+    function sendMessageToExtension(payload,resp) {
       const extensionIdField = document.querySelector("#id");
 
       if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage(
           extensionIdField.value || "nfoddpmcmcgidocmelbgdapjjiooajkp",
           payload,
-          function(response){
-            console.log("response: ",response)
-          } 
+          resp
         );
       }
     }
@@ -42,9 +40,11 @@
 
     loginButton.onclick = () => {
       const payload = { type: "LOG_IN", token: "xxx" };
-
-      sendMessageToExtension(payload);
-      payloadPreview.innerHTML = "Sent: " + JSON.stringify(payload);
+      
+      sendMessageToExtension(payload,function(response){
+        console.log("plugin response:",response)
+      });
+      payloadPreview.innerHTML = "<p>Sent: " + JSON.stringify(payload)+"</p>"+""+;
     };
 
     logoutButton.onclick = () => {
