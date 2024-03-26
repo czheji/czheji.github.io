@@ -41,10 +41,12 @@
     loginButton.onclick = () => {
       const payload = { type: "LOG_IN", token: "xxx" };
       console.log("loginButton onClick")
+      var r = ""
       sendMessageToExtension(payload,function(response){
         console.log("plugin response:",response)
+        r = response
       });
-      payloadPreview.innerHTML = "<p>Sent: " + JSON.stringify(payload)+"</p>"+"<p>Resp:"+response+"</p>";
+      payloadPreview.innerHTML = "<p>Sent: " + JSON.stringify(payload)+"</p>"+"<p>Resp:"+r+"</p>"
     };
 
     logoutButton.onclick = () => {
